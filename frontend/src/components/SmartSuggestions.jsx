@@ -4,9 +4,10 @@ export default function SmartSuggestions({ expenses = [], budget = null }) {
   if (!budget) return null;
 
   const { spent = 0, budget: monthlyBudget = 0, over_limit = false, percent_used = 0 } = budget;
+  const safeExpenses = Array.isArray(expenses) ? expenses : [];
 
   // Calculate top spending category
-  const categoryTotals = expenses.reduce((acc, exp) => {
+  const categoryTotals = safeExpenses.reduce((acc, exp) => {
     acc[exp.category] = (acc[exp.category] || 0) + Number(exp.amount);
     return acc;
   }, {});
