@@ -17,8 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-admin.site.has_permission = lambda request: True
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('expenses.urls')),
