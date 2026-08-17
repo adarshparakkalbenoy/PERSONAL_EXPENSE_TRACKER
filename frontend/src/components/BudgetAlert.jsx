@@ -1,6 +1,6 @@
 export default function BudgetAlert({ budget }) {
   if (!budget) return null;
-  const { spent, budget: limit, over_limit: overLimit, percent_used: percent } = budget;
+  const { spent = 0, budget: limit = 0, over_limit: overLimit = false, percent_used: percent = 0 } = budget;
   const barWidth = Math.min(percent, 100);
 
   return (
